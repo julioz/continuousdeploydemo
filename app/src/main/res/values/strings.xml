@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Continuous Deploy Demo</string>
-    <string name="app_message">Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo Continuous Deploy Demo </string>
+    <string name="app_message">App Version %s\n\nThis app is a simple demo application for developers who are interested in continuous deploy in the android platform.\n\nCheck out my presentation for further details: juliozynger.tumblr.com or check my personal website https://about.me/julioz</string>
 </resources>
