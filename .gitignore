@@ -7,3 +7,6 @@
 /build
 /captures
 /android_app/signing
+/publisher_project/*.pem
+/publisher_project/bin/*
+/publisher_project/src/br/com/zynger/continuousdeploy/Constants.java
