@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Program Files\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.0\support-annotations-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
+        <dex dex="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\pre-dexed\release\support-annotations-23.2.0_4634c383be1fde8d84db70b1f9478f9d9cd08301.jar" />
+    </item>
+    <item
+        jar="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
+        <dex dex="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\pre-dexed\release\com.android.support-animated-vector-drawable-23.2.0_f53323cb17cf0b8ce9990ab2b2352bd5f56d1ef3.jar" />
+    </item>
+    <item
+        jar="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="292a9fa091757208efa65e77eef63088247e51f3">
+        <dex dex="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\pre-dexed\release\com.android.support-support-vector-drawable-23.2.0_de2480d3ad29a27b6abc455dba76111d39d918a4.jar" />
+    </item>
+    <item
+        jar="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\pre-dexed\release\com.android.support-support-v4-23.2.0_645c2673f2200791fcd2a82a36e89af7480dc9ce.jar" />
+    </item>
+    <item
+        jar="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\libs\internal_impl-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6e239441500605809818997dd63b62a947195f8c">
+        <dex dex="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\pre-dexed\release\internal_impl-23.2.0_4a9ba63a586f48228c9cf1872fc339707dee9b5a.jar" />
+    </item>
+    <item
+        jar="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6e3578f92f7462d1a935a1d36173e3bdd1234976">
+        <dex dex="D:\Documents\AndroidStudioProjects\ContinuousDeployDemo\app\build\intermediates\pre-dexed\release\com.android.support-appcompat-v7-23.2.0_da0cf39405bee59684e00d330fad302960fdf4f5.jar" />
+    </item>
+
+</items>
