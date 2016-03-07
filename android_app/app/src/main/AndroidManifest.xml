@@ -1,5 +1,5 @@
 <manifest
-    package="br.com.zynger.continuousdeploydemo"
+    package="br.com.zynger.continuousdeploydemoapp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name="br.com.zynger.continuousdeploydemoapp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

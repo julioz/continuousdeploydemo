@@ -1,4 +1,4 @@
-package br.com.zynger.continuousdeploydemo;
+package br.com.zynger.continuousdeploydemoapp;
 
 import org.junit.Test;
 
