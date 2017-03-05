@@ -1,12 +1,5 @@
 package br.com.zynger.continuousdeploy;
 
-import java.io.File;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.FileContent;
@@ -28,6 +21,13 @@ import com.google.api.services.androidpublisher.model.ListingsListResponse;
 import com.google.api.services.androidpublisher.model.Review;
 import com.google.api.services.androidpublisher.model.ReviewsListResponse;
 import com.google.api.services.androidpublisher.model.Track;
+
+import java.io.File;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 
 public class Main {
 
@@ -51,8 +51,7 @@ public class Main {
                 .setServiceAccountScopes(scopes)
                 .setServiceAccountPrivateKeyFromPemFile(secretFile).build();
 
-        AndroidPublisher publisher = new AndroidPublisher.Builder(http, json,
-                credential).setApplicationName(PACKAGE).build();
+        AndroidPublisher publisher = new AndroidPublisher.Builder(http, json, credential).setApplicationName(PACKAGE).build();
 
         final Edits edits = publisher.edits();
         final AndroidPublisher.Reviews reviews = publisher.reviews();
@@ -74,7 +73,7 @@ public class Main {
         String track = "production"; // could be "alpha", "beta", "rollout" or "production"
         String whatsNew = "Updated app through Google Play Developer API!";
         updateApplication(edits, transactionId, language, apkFile, track, whatsNew);
-        
+
         edits.validate(PACKAGE, transactionId).execute();
         edits.commit(PACKAGE, transactionId).execute();
     }
@@ -94,7 +93,7 @@ public class Main {
     private static void printListings(final Edits edits, final String transactionId) throws IOException {
         Listings listings = edits.listings();
         ListingsListResponse listingsListResponse = listings.list(PACKAGE,
-                transactionId).execute();
+                                                                  transactionId).execute();
 
         for (Listing listing : listingsListResponse.getListings()) {
             System.out.println(listing.toPrettyString());
@@ -102,32 +101,26 @@ public class Main {
         System.out.println();
     }
 
-    private static void listApks(Edits edits, String transactionId)
-            throws IOException {
+    private static void listApks(Edits edits, String transactionId) throws IOException {
         // Get a list of apks.
-        ApksListResponse apksResponse = edits.apks()
-                .list(PACKAGE, transactionId).execute();
+        ApksListResponse apksResponse = edits.apks().list(PACKAGE, transactionId).execute();
 
         // Print the apk info.
         for (Apk apk : apksResponse.getApks()) {
-            System.out.println(String.format("Version: %d - Binary sha1: %s",
-                    apk.getVersionCode(), apk.getBinary().getSha1()));
+            System.out.println(String.format("Version: %d - Binary sha1: %s", apk.getVersionCode(), apk.getBinary().getSha1()));
         }
         System.out.println();
     }
 
-    private static void setListingDescription(final Edits edits,
-            final String transactionId, String language, String description)
-            throws IOException {
+    private static void setListingDescription(final Edits edits, final String transactionId,
+                                              String language, String description) throws IOException {
         Listings listings = edits.listings();
-        ListingsListResponse listingsListResponse = listings.list(PACKAGE,
-                transactionId).execute();
-        Listing listing = getListingByLanguage(
-                listingsListResponse.getListings(), language);
+        ListingsListResponse listingsListResponse = listings.list(PACKAGE, transactionId).execute();
+        Listing listing = getListingByLanguage(listingsListResponse.getListings(), language);
 
         if (listing == null) {
             throw new IOException("Could not find listing for language "
-                    + language);
+                                          + language);
         }
 
         listing.setFullDescription(description);
@@ -135,8 +128,7 @@ public class Main {
         listings.update(PACKAGE, transactionId, language, listing).execute();
     }
 
-    private static Listing getListingByLanguage(List<Listing> listings,
-            String language) {
+    private static Listing getListingByLanguage(List<Listing> listings, String language) {
         for (Listing listing : listings) {
             if (listing.getLanguage().equalsIgnoreCase(language)) {
                 return listing;
@@ -145,9 +137,10 @@ public class Main {
 
         return null;
     }
-    
+
     private static void updateApplication(final Edits edits, final String transactionId,
-            final String language, final File apkFile, String trackId, String whatsNewDescription) throws IOException {
+                                          final String language, final File apkFile,
+                                          String trackId, String whatsNewDescription) throws IOException {
         // APK upload
         Apks apks = edits.apks();
         FileContent apkContent = new FileContent(APK_MIME_TYPE, apkFile);
@@ -166,7 +159,6 @@ public class Main {
         Apklistings apklistings = edits.apklistings();
         ApkListing whatsnew = new ApkListing().setRecentChanges(whatsNewDescription);
         apklistings.update(PACKAGE, transactionId, version, language, whatsnew).execute();
-        System.out.println("Updated listings with the following 'whats new' content:" +
-                '\n' + whatsNewDescription);
+        System.out.println("Updated listings with the following 'whats new' content:" + '\n' + whatsNewDescription);
     }
 }
