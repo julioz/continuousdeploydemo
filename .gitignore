@@ -2,6 +2,8 @@
 .gradle
 .metadata/
 /local.properties
+/**/local.properties
+/build/**
 /.idea/workspace.xml
 /.idea/libraries
 .DS_Store
@@ -9,7 +11,11 @@
 /captures
 /android_app/signing
 /build/**
+/**/build/**
 /.idea/**
+/.idea/**
+/.idea/**
+/**/.idea/
 /**/*.pem
 /**/*.apk
 /**/bin/*
