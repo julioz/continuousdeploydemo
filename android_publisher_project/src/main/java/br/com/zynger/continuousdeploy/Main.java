@@ -25,6 +25,8 @@ import com.google.api.services.androidpublisher.model.ApksListResponse;
 import com.google.api.services.androidpublisher.model.AppEdit;
 import com.google.api.services.androidpublisher.model.Listing;
 import com.google.api.services.androidpublisher.model.ListingsListResponse;
+import com.google.api.services.androidpublisher.model.Review;
+import com.google.api.services.androidpublisher.model.ReviewsListResponse;
 import com.google.api.services.androidpublisher.model.Track;
 
 public class Main {
@@ -53,13 +55,15 @@ public class Main {
                 credential).setApplicationName(PACKAGE).build();
 
         final Edits edits = publisher.edits();
+        final AndroidPublisher.Reviews reviews = publisher.reviews();
         // Create a new edit to make changes.
         AppEdit appEdit = edits.insert(PACKAGE, null).execute();
         String transactionId = appEdit.getId();
         String language = "en-US";
-        
+
         printListings(edits, transactionId);
         listApks(edits, transactionId);
+        printReviews(reviews);
 
         String description = "This app is a simple demo application for developers who are interested in continuous deploy "
                 + "in the android platform.\n\n"
@@ -75,8 +79,19 @@ public class Main {
         edits.commit(PACKAGE, transactionId).execute();
     }
 
-    private static void printListings(final Edits edits,
-            final String transactionId) throws IOException {
+    private static void printReviews(AndroidPublisher.Reviews reviews) throws IOException {
+        ReviewsListResponse reviewsListResponse = reviews.list(PACKAGE).execute();
+        if (reviewsListResponse.getReviews() == null || reviewsListResponse.getReviews().isEmpty()) {
+            System.out.println("No reviews for " + PACKAGE + "!");
+        } else {
+            System.out.println("Fetched " + reviewsListResponse.getReviews().size() + " reviews");
+            for (Review review : reviewsListResponse.getReviews()) {
+                System.out.println(review);
+            }
+        }
+    }
+
+    private static void printListings(final Edits edits, final String transactionId) throws IOException {
         Listings listings = edits.listings();
         ListingsListResponse listingsListResponse = listings.list(PACKAGE,
                 transactionId).execute();
